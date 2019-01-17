@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MusSmart application – user guide</title>
+    <link rel="stylesheet" href="mincss.css">
+    <script src="jsscript.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div>
+        <img src="logo.jpg" width="150" height="100" alt="MusSmart logo">
+		<h1>MusSmart application - User Guide</h1>
+        <!--<div class="status">MusSmart</div>
+      </div>-->
+	  </div>
+      
+    </header>
+ 
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          
+         <li property="schema:roleContactPoint" typeof="schema:ContactPoint">Maftei Estera
+            <a href="mailto:estera.maftei25214@gmail.com"
+                property="schema:email">estera.maftei25214@gmail.com</a>
+         </li>
+        </dd>
+        
+        <dd>
+          
+			<li property="schema:roleContactPoint" typeof="schema:ContactPoint">Boglis Vlad-Alecsandru
+            <a href="mailto:vboglis@gmail.com"
+                property="schema:email">vboglis@gmail.com</a>
+			</li>
+        <dd>
+         
+		 <li property="schema:roleContactPoint" typeof="schema:ContactPoint"> Ciocoiu Gabriela
+            <a href="mailto:ciocoiu.gabriela9@gmail.com"
+                property="schema:email">ciocoiu.gabriela9@gmail.com</a>
+		</li>
+        </dd>
+       </dt>
+      </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+		This documentation is a guide for any person that want to use or already use the MusSmart web application. 
+		The user guide completes all the features and the actions for our customers: register, log in, search, playlists management, 
+		follow people and accept followers, see events and charts of the artist and always be updated by the new releases and guided 
+		to music you might like. We hope you find the answers of the functionalities in order to use them with pleasure.  
+	  </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+       <p>
+          MusSmart is a music smart assistant that lets user to organize songs by preference, to 
+		make playlists, to add to favorites and play history and offers recommendations based on 
+		the user feedback. It has search options and possibility to listen offline. This application 
+		even plays past events/concerts attendance, near future events and provide a map of events.
+        </p>
+	
+
+    </section>
+    <section id="structure" role="doc-structure">
+	
+      <!-- review? -->
+		<h2>Structure</h2>
+      
+		
+		<section id="Overview">
+        <!-- review? -->
+			<h3> Overview</h3>
+			<p>
+         Digital music might not have the same allure as sitting down to listen to a record on your turntable, but what it lacks in atmosphere, 
+		 it makes up for in convenience — especially when you aren't home with your collection. If you're just dipping your toe into the stream, 
+		 follow our beginner's guide and soon you'll be listening to MusSmart's massive library without the worry of losing precious hard drive space.
+			</p>
+       
+		</section>
+		<section id="sign">
+        <!-- review? -->
+			<h3> Signing up</h3>
+			<p>
+				As with most services, you can register for MusSmart by connecting your Facebook/Google or Twitter account for optimal social features, or create an account with your email address.
+			</p>
+			<div>
+				<img src="wireframes/Welcome.png"   alt="Welcome">
+			</div>
+			<p>
+				So, if you like to register with email address, you will be redirected to the register web page to complete the username, email and password and press register.
+			</p>
+			<div>
+				<img src="wireframes/Register.png"   alt="Register">
+			</div>
+		</section>
+		<section id="preferences">
+        <!-- review? -->
+			<h3> Choose preferences</h3>
+			<p>
+			If you are for the first time on the application, you need to complete your music profile. In order to complete this, the MusSmart will ask for the preferences in genders of music and artists.
+			The preferences consists in genres that he likes (as blues, pop, indie, rock, trap, classical etc), and for the clicked ones, the genres are selected.
+			Next you must pick up the artists related to the genres liked before. The number is unlimited, so will be a checkbox with “Select all”.
+
+			</p>
+			<div>
+			<img src="wireframes/Preferences.png"   alt="User preferences">
+			</div>
+			<p>
+			The preferences will help us to give you better recommendations of songs and to create the tags you like. 
+			In the discover page and at home you will be updated always with the music we know you like and listen often.
+			</p>
+			
+		  </section>
+		<section id="register/login">
+        <!-- review? -->
+			<h3> Access home page</h3>
+			<p>
+				The use case scenario presents the action of user log in and accessing home page. The user in the log in phase has to be registered before. 
+				After registration, that can happen once for user and choosing preferences, you can log in anytime. After log in, the home page appear
+				and you can log out, view top artists, view and play top songs, view your profile and search for songs/album, artists etc.
+			</p>
+			<div>
+				<img src="cases/UseCase1.png"   alt="User registration and login">
+			</div>
+			<p>
+			
+			</p>
+		<section id="search">
+        <!-- review? -->
+			<h3> Search</h3>
+			<div>
+			<img src="wireframes/Search.png"   alt="Search">
+			</div>
+			<p>
+				Enter anything you want to find, including:
+				<li>Songs</li>
+				<li>Albums</li>
+				<li>Artists</li>
+				<li>Playlists</li>
+				<li>Podcast shows and episodes</li>
+				<li>Genres and moods</li>
+				<li>Other users </li>
+				Note: If you can’t find another user by typing their name, it’s likely they don’t have a display name. 
+				Try searching last.fm:user: followed by their username instead (with no spaces).
+			</p>
+			<p>
+				Enter any of these before your search term to narrow the results.
+				<li>year: Displays music from a particular year. You can also enter a range of years, for example year:1978-1984.</li>
+				<li>genre: Displays music in the genre matching keyword.</li>
+				<li>label: Displays music released by the label matching keyword.</li>
+				<li>isrc: Displays tracks matching ID number according to the International Standard Recording Code.</li>
+				<li>upc: Displays albums matching ID number according to the Universal Product Code.</li>
+				<li>tag:new - Lists the most recently added albums.</li>
+			</p>
+			<div>
+			<img src="wireframes/home.png"   alt="home">
+			</div>
+		</section>
+		<section id="tops">
+        <!-- review? -->
+			<h3> View tops</h3>
+			
+			<p>
+				We make in the home page appear something for you anytime. So, the tops are here. They are getting by your location, 
+				the genres, the current season and some mood correlated with your often played songs.In order to view a specific tops,
+				you have to click on title and enter the collection. In the=at list you can scroll and listen to whatever you like.
+			</p>
+			
+		
+		</section>
+		
+		<section id="Profile">
+        <!-- review? -->
+			<h3> View profile</h3>
+			
+			<p>
+				Your profile is your image for the other friends that you’ll make in the future and a basic info about you. 
+				You can complete any information you like (surname, description about you, the genres of favorite artists).
+			</p>
+			<div>
+			<img src="wireframes/Profile.png"   alt="Profile">
+			</div>
+		
+		</section>
+		<section id="Log out">
+        <!-- review? -->
+			<h3> Log out</h3>
+			
+			<p>
+				If you want to close the session, you can go to Profile and they choose log out.
+			</p>
+			<div>
+			<img src="wireframes/LogOut.png"   alt="Log out">
+			</div>
+		
+		</section>
+	
+		</section>
+		
+		<section id="Scrobble">
+        <!-- review? -->
+        <h3>Scrobbling</h3>
+		<p>
+			Scrobbling is a way to send information about the music a user is listening to. With the aim of Last.fm we can give to you,
+			anytime from any page in the app a song and display it to the bottom of the page. This request represent “Now Playing feature.
+			For this you must be authenticated in the application. Our MusSmart application will send a HTTP request to the http://ws.audioscrobbler.com/2.0/. 
+			You can read more information here: https://www.last.fm/api/scrobbling.
+		</p>
+		<div>
+			<img src="wireframes/Scrobbling.png"   alt="Scrobbling">
+		</div>
+      </section>
+	  
+	  <section id="lyrics">
+        <!-- review? -->
+        <h3>Lyrics display</h3>
+		<p>
+			When you listen to a song, the lyrics goes with the sound in order to enjoy the music and singing. 
+			We are offer you this to not lose your time to check the lyrics online. The lyrics are in accord with the language the songs is.
+		</p>
+			<div>
+			<img src="wireframes/Lyrics.png"   alt="Scrobbling">
+		</div>
+      </section>
+	  
+		<section id="webapp">
+        <!-- review? -->
+        <h3> Discover</h3>
+		<p>
+			If you already see the interface is separated in two sides on the left part: my library on the bottom and home, discover are up.
+		</p>
+        
+		<p>
+			Discover consist on the different genres, related artists or the songs of a specific artists that you listen often or you follow them. 
+			In this section it can be displayed the songs alike another songs after a significant number of replays.
+			You can discover here subjects beyond music (podcast, football, podcast). The application automatically track the interests and search new songs 
+			to show to you. In average the part of every subject contains from 7 to 10.
+			It is important to know that on the song you play, that that appear on the bottom of the page, you can click on the title or the artist to go to the source.  
+			In Discover, the user can access an interactive map (mind map) of artists with their songs and related artists they collaborate with in order to discover 
+			yourself and your preferences and to have some background about the collaboration of artist in music.
+		</p>
+		<p>
+		In Discover page to can access Radio functions like a typical Internet radio service. You can create stations by artist, song, album and genre, 
+		and upvote or downvote songs you love or hate.  Radio is free to use on the web app.
+		</p>
+		<div>
+			<img src="wireframes/Discover.png"   alt="Discover">
+		</div>
+      </section>
+		<section id="fav">
+        <!-- review? -->
+        <h3> Favorites</h3>
+		<p>
+			When you listen to a song, if you like it, you can add it to favorites. At the favorites the user can access all the favorite music. 
+			It is important to mention that you can add playlist made from discover, albums, songs or tops. So the favorites will presents those organized by: songs, album, or top.
+		</p>  
+		
+      </section>
+	  
+	  <section id="webapp">
+		<!-- review? -->
+		<h3> Playlist management</h3>
+		<p>
+			You can create playlists for your preferences in this way: play a song and from this song you can rather add to favorites or add to playlist, remove from context (if you don't like it). 
+			A playlist show a button for shuffle and a button for replaying.
+		</p>
+		<p>
+			In this case scenario, you can manage your playlists. The action begins when you enter the playlists category from “My music” section. 
+			So, when you are in the playlists page, you can create a playlist, view a specific one, modify a playlist and you have the option to delete a playlists. 
+		</p>
+		<div>
+			<img src="cases/UseCase2.png"   alt="User registration and login">
+		</div>
+		
+		<p>
+			<li>Create playlists requires to add a name to playlist (this is a mandatory action, the playlist name cannot be empty. 
+			The time you complete the name and create the playlist, the next step is to view the playlist, which for the moment is empty. 
+			<div>
+				<img src="wireframes/AddPlaylistButton.png"   alt="Add playlist">
+			</div>
+			<div>
+				<img src="wireframes/NamePlaylist.png"   alt="Add name playlist">
+			</div>
+			In the empty playlist, the application suggest/recommend some songs for the beginning.</li>
+			<li>View a specific playlist has some action complementary: 
+				<ul>add new songs </ul>
+				<ul>remove songs </ul>
+				<ul>move songs to another playlists; it is required to choose an existed playlist. </ul>
+				</li>
+				<div>
+					<img src="wireframes/SongMove.png"   alt="Songs move">
+				</div>
+			<li>Modify playlist include to choose an existing playlist and make actions like rename it or change picture.</li>
+				<div>
+					<img src="wireframes/EditNamePlaylist.png"   alt="Edit">
+				</div>
+			<li>Delete playlist include to choose an existing playlist and click on it, delete. </li>
+				<div>
+					<img src="wireframes/deletePlaylist.png"   alt="Delete">
+				</div>
+		</p>
+		
+		
+	  </section>
+	   
+		<section id="history">
+        <!-- review? -->
+        <h3>History</h3>
+		<p>
+			The user can see the latest played songs. An observation here is that the songs are not organized in any way, it will be displayed in reversal order of listening, so the most recent will be first.
+		</p>
+		<div>
+			<img src="wireframes/History.png"   alt="History">
+		</div>
+       
+      </section>
+	  
+		
+	     <section id="webapp">
+        <!-- review? -->
+        <h3> Following/Followers</h3>
+        <div>
+		<img src="cases/UseCase3.png"   alt="User registration and login">
+		</div>
+		<p>
+			This follow management contains the action referring to follow people on MusSmart, accept a follow request and see the followers. In order to manage the followers/following, 
+			the user is in the profile section and obviously is logged in. 
+			<li>Follow a person requires to search a person. When searching the user, can see their profile and playlists if the playlist are public.</li>
+			<div>
+				<img src="wireframes/YouFollow.png"   alt="Follow">
+			</div>
+			<li>View followers: the people who follow you and view their profiles </li>
+			<div>
+				<img src="wireframes/YouFollow.png"   alt="Follow">
+			</div>	
+			<li>View follow requests: the people who send request need an approval if the user want them to follow him, in the case he don’t, then can refuse to accept the follow request. <li>
+			<div>
+				<img src="wireframes/AcceptFollow.png"   alt="Follow">
+			</div>	
+			<li>View who you follow: the people who the user send a follow request to and they accept it. The user can view the profile of this people, to view the public playlists and to unfollow. </li>
+		</p>
+		</section>
+		
+		<section id="events">
+        <!-- review? -->
+        <h3>Events</h3>
+		<p>
+			 MusSmart track the events from Facebook for the user connected with Facebook account, if they are interested in any events or going to the events, as soon as the records are published are displayed to them.
+		</p>
+		 <div>
+		<img src="wireframes/Events.png"   alt="Events">
+		</div>
+       
+      </section>
+      </section>
+	  
+      
+	</section>
+	
+	<section id="references">
+        <!-- review? -->
+        <h2>References</h2>
+        <p>
+      
+		<p>
+		<a href="http://xspf.org/specs/">XSPF</a>
+		</p>
+		<p>
+		<a href="https://www.json.org/">JSON</a>
+		</p>
+		<p>
+		<a href="https://www.last.fm/api">Last.fm API</a>
+		</p>
+		<p>
+		<a href="https://www.elastic.co/fr/products/elasticsearch">ElasticSearch</a> 
+        </p>
+        <p>
+	</section>
+	
+  </body>
+  <hr>
+    <footer style="text-align: center">
+        <p property="schema:copyrightYear" property="schema:Organization">Copyright © 2018 <a href="http://www.feaa.uaic.ro/"> Faculty of Economics and Business Administration </a>, "Alexandru Ioan Cuza" University Iasi</p>
+        <a href="https://github.com/Esther96/Web-systems-development" property="schema:licence" typeof="CreativeWork">Licence</a>
+    </footer>
+	
+
+</html>

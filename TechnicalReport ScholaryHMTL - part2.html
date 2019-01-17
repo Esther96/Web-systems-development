@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MusSmart application – music smart assistant</title>
+    <link rel="stylesheet" href="mincss.css">
+    <script src="jsscript.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div>
+        <img src="logo.jpg" width="150" height="100" alt="MusSmart logo">
+		<h1>MusSmart application </h1>
+        <!--<div class="status">MusSmart</div>
+      </div>-->
+	  </div>
+      
+    </header>
+ 
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          
+         <li property="schema:roleContactPoint" typeof="schema:ContactPoint">Maftei Estera
+            <a href="mailto:estera.maftei25214@gmail.com"
+                property="schema:email">estera.maftei25214@gmail.com</a>
+         </li>
+        </dd>
+        
+        <dd>
+          
+			<li property="schema:roleContactPoint" typeof="schema:ContactPoint">Boglis Vlad-Alecsandru
+            <a href="mailto:vboglis@gmail.com"
+                property="schema:email">vboglis@gmail.com</a>
+			</li>
+        <dd>
+         
+		 <li property="schema:roleContactPoint" typeof="schema:ContactPoint"> Ciocoiu Gabriela
+            <a href="mailto:ciocoiu.gabriela9@gmail.com"
+                property="schema:email">ciocoiu.gabriela9@gmail.com</a>
+		</li>
+        </dd>
+       </dt>
+      </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+		MusSmart is a music smart application developed in PHP and <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> services that connect to 
+		<a href="https://www.last.fm/api">Last.fm API</a> in order to get the songs from the library and offers it to the user. A user 
+		can search for songs by artist, title, tags, genre and by lirics with the aim of <a href="https://www.elastic.co/fr/products/elasticsearch">ElasticSearch</a> 
+		API. The user is very entertained by the option given, the application let him to save playlists,
+		make his own playlist, add favorites, listen offline and many others.
+      </p>
+	  <p>
+		MusSmart application want to organize the music someone listen to in a smart way, to give recommendation, to make charts and show events in order to create a better experience for the user.
+	  <p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        Music was always a way to entertain or to escape reality in a good way.	Music is a part of our lives and with every occasion we are accompanied by songs. 
+		The humans behave in such a way they colors the life they live. Movies are covered in music, theaters, lessons, public transport and publicity and many others are 
+		related to music in order to have a great impact. 
+	</p>
+	<p>
+		Music smart assistant story begins with the need of customization of all music we listen or we want, even related with other apps from the phone or web. In order to be up-to-date with our favorite 
+		music, a smart assistant can make better recommendations, faster than us. So MusSmart stays for the music and smart, these two words makes everything perfect.
+		This app is multi-platform and offers the option to carry the music offline. Offline mode is required for the places with no internet and signal, and the application 
+		stores the songs on the device that can be later used, if the user choses to.
+
+      </p>
+	  <p>
+        The number of daily users we expected to grow every time because now we release the free version.
+		The growth is shown even in the number of hardware platforms our clients run on, the number of 
+		development teams that work with our products, the number of external apps we host on our platform, 
+		the number of songs we have in our catalogue.
+      </p>
+	  <p>
+		We will make a lot of efforts in order to render at a minimum time the content wanted especially 
+		for the search and discover area, because those two are in changing and is vital for the user.
+		As we say before, we offer the offline support. The offline area is available from the application 
+		to the device, mobile or desktop. Offline mode is required for the places with no internet or secure 
+		Wi-Fi or for no signal, like airplanes. So, the songs added to favorites, the history, and all the 
+		playlists saved/ album saved are available to listen offline by storing them into device, and synchronizing,
+		and transfer from the app with a <a href="https://www.w3.org/XML/">XML</a> shareable playlist (<a href="http://xspf.org/specs/">XSPF</a>).
+	  </p>
+	  <p>
+		The search for offline will work for the stored songs, but some areas will be available when a connection 
+		to the internet is made.
+	  </p>
+	  <p>
+		Another aspect of this music smart assistant is Facebook integration. We want the user to be connected 
+		with the artists he likes and follows on Facebook. Also for upcoming events like festivals, concerts, 
+		immediately a song appear related to that event, it will be displayed to user in discover section of 
+		the application.
+	  </p>
+	  <p>
+		Lyrics search and lyrics displayed on play is possible with MusSmart. We thought it would be really 
+		convenient to allow tracks to be searched by lyric query. When we talk about search, we’re talking 
+		about both the search query itself and the index of search terms. First, we build an index based on 
+		the open source search engine Elasticsearch (indeed the entire MusSmart search engine relies on it).
+		We index <a href="https://www.json.org/">JSON</a> documents representing track lyrics. Querying lyrics text however is more akin to a 
+		traditional search on a text document where the frequency of the query must be taken into account. 
+		In order to compute a score that reflects the matching between the user query and the track lyrics, 
+		we use the ElasticSearch Function Score Query.
+	  </p>
+
+    </section>
+    <section id="structure" role="doc-structure">
+	
+      <!-- review? -->
+      <h2>Structure</h2>
+      
+		
+      <section id="Overview">
+        <!-- review? -->
+        <h3> Overview</h3>
+        <p>
+          MusSmart is a music smart assistant that lets user to organize songs by preference, to 
+		make playlists, to add to favorites and play history and offers recommendations based on 
+		the user feedback. It has search options and possibility to listen offline. This application 
+		even plays past events/concerts attendance, near future events and provide a map of events.
+        </p>
+		<div>
+			<img src="logo.jpg" width="150" height="100" alt="MusSmart logo">
+			<img src="wireframes/Colors.png" width="150" height="100" alt="MusSmart colors logo">
+		</div>
+		<p>
+			The logo of the application contains a music symbol, the Sol key. Using graphics and letters is a symbol of entertainment for the music industry.
+			The aim was to make it both entertaining and conceptual. So, the Mus – in a red shade of “Cardinal” color stays for music. 
+			The shade of blue (mariner) stays for freedom and intelligence, so the “Smart” part in the name of the application suggests the idea of intelligent application and technology improvement.
+		</p>
+		<p>
+		Cardinal has a meaning for fiery feathers of passions, and a color of life and energy. The color is also associated 
+		with the red bird or red cardinal, originated from North America and could be found in woodlands, swamps and gardens 
+		from southern parts of Canada to the south of Mexico. They sing beautiful songs and do not fly away from winter snows and frost. 
+		They are associated with endurance, passion and strength. A cardinal may symbolize the fire of life that burn within our souls, even 
+		in the darkness and coldest time and it remind us to stay positive. Music give that powerful, energetic and resistance vibe and stays with us between happiest and loneliness moments. 
+		</p>
+		<p>
+		Mariner color stays for silence, freedom and inner peace. It is also use for perfection and intelligence and creativity. 
+		This combination of colors are created in a perfect manner to create both contrast and harmony.  
+
+		</p>
+		<p>
+			The features of the application contains the following:
+		</p>
+		<div>
+		<img src="web/Features.png"    alt="Data input and output">
+		</div>
+       
+      </section>
+      <section id="webapp">
+        <!-- review? -->
+        <h3> Web app  design and interaction</h3>
+        
+		<p>
+			MusSmart have so many option for a listener, so the user find here all he wants from a 
+			music application. The pages are organized in 2 categories: MusSmart and My music.
+		</p>
+		<p>
+			<i>In the first part the user found:</i>
+		</p>
+		
+		
+		<li>
+			Welcome user and sign in/register
+			<p>
+			At first interaction with the MusSmart, to the user is displayed a welcome message 
+			“Welcome to MusSmart” and has two option: to log in or to register in case the user is 
+			a new client for our site. For the registration (sign up) we offer the opportunity to 
+			sign up with Facebook or by Google account.
+			</p>
+			<p>
+			The registration requires: email, username, password, confirm password, country and terms 
+			and condition clauses checkbox and link to those. For the instance we not required card 
+			details to use the application, but for the future we consider that. 
+
+			</p>
+			<div>
+				<img src="wireframes/welcome.png"    alt="Welcome page">
+			</div>
+			<div>
+				<img src="wireframes/Register.png"    alt="Register page">
+			</div>
+		</li>
+		<li>
+			Preferences context
+			<p>
+			After registration, a dialog show up and the user must choose the genre that he likes 
+			(as blues, pop, indie, rock, trap, classical etc), and for the clicked ones, the genres 
+			are selected, next he must pick up the artists related to the genres liked before. The number 
+			is unlimited, so will be a checkbox with “Select all”.
+			</p>
+			
+			<div>
+				<img src="wireframes/Preferences.png"    alt="Preferences genres">
+			</div>
+		</li>
+		<li>
+			Home page
+			<p>
+			The home page offers the overview of the latest songs and albums, artists, different tops 
+			(Top Pop Songs, Top Romanian songs), the lasts concert record. These will be placed by 
+			sections: Recommendation, then History, Latest albums released, artists, new playlists 
+			by genre and events.
+			Search button is visible anywhere after registration in order to facilitate the use of 
+			application. So here the user, can type and search songs, artist or tags
+			</p>
+			<div>
+				<img src="wireframes/Home.png"    alt="Home page">
+			</div>
+		</li>
+		<li>
+			Discover (Recommendations)
+			<p>
+			This page display different genres, related artists or the songs of a specific artists that 
+			the user listen often. In this section it can be displayed the songs alike another songs 
+			after a significant number of replays.  Also it displays subjects beyond music (podcast, 
+			football, podcast). The application automatically track the interests and search new songs 
+			to show to user. In average the part of every subject contains from 7 to 10 
+			In Discover, the user can access an interactive map (mind map) of artists with their songs 
+			and related artists they collaborate with.
+			</p>
+			<p>
+			In Discover page to can access Radio functions like a typical Internet radio service. You can create stations by artist, song, album and genre, 
+			and upvote or downvote songs you love or hate.  Radio is free to use on the web app.
+			</p>
+			
+			<div>
+				<img src="wireframes/Discover.png"    alt="Discover">
+			</div>
+		</li>
+		<li>
+			Follow
+			<p>
+			The MusSmart let the users follow certain people on the application, also it give the possibility 
+			to accept followers. By following another user, the user will get their latest uploads in stream,
+			so he can listen to the newest music or audio as it is released. We want the user to can connect 
+			to their facebook friends and suggest their accounts to the our music application. 
+			</p>
+			<p>
+			Like pages on Facebook, in the MuSSmart, the users can follow artist and be updated at their 
+			music. Also, for the artist that users follows, automatically on new songs, these songs will 
+			be added on Release of the week playlist.
+			</p>
+		</li>
+		
+		<p>	
+		<i>In My music section are the following pages:</i>
+		</p>
+		<li>
+			Favorites
+			<p>
+			When the user listen to a song, if he likes it, he can added to favorites. At the favorites the 
+			user can access all the favorite music. It is important to mention that the user can add playlist
+			made from discover, albums, songs or tops. So the favorites will presents those organized by: 
+			songs, album, or top.
+			</p>
+		</li>
+		<li>
+			Playlists
+			<p>
+			The user can create playlists for their preferences in this way: they play a song and from 
+			this song can rather add to favorites or add to playlist, remove from context (if he doesn’t 
+			likes it). A playlist show a button for shuffle and a button for replaying.
+			</p>
+			<div>
+				<img src="wireframes/Playlists.png"    alt="Playlists">
+			</div>
+		</li>
+		<li>
+			History
+			<p>
+			The user can see the latest played songs. An observation here is that the songs are not 
+			organized in any way, it will be displayed in reversal order of listening, so the most recent 
+			will be first.
+			</p>
+			<div>
+				<img src="wireframes/History.png"    alt="History of songs">
+			</div>
+		</li>
+		<li>
+			Events
+			<p>
+			This actions is done by synchronizing the calendar of the user (Google calendar or Android
+			/iOS calendar) in such a way, it will search for records of this events and recommend to user
+			in order to listen. MusSmart track the events from Facebook for the user connected with Facebook
+			account, if they are interested in any events or going to the events, as soon as the records are 
+			published are displayed to them.
+			</p>
+			<div>
+				<img src="wireframes/Events.png"    alt="Events' page">
+			</div>
+		</li>
+		<p>	
+			<i>Dashboard</i>
+		</p>
+		<p>
+			The administrator of the MusSmart application can view and manage the all users, also can 
+			give different permisiions of songs (for region) and can set the events that are syncronize 
+			with Facebook. In this area, he can wiew report of the most listened melodies, the most 
+			followed artists, the location with the most users etc. 
+		</p>
+		<p>
+			Dashboard use the Last.fm record and charts in order to see the tops and the users that currently scrobbling in the application.
+			The Last.fm API offers the information, and for the administrator with the aim of Bootstrap 4 we can offer graphics, user management, access details. 
+		</p>
+		<p>
+			For having an overview of the pages of the web application, we construct a diagram for the modules and their functionalities.
+		</p>
+		<div>
+			<img src="web/Modules.png" width="842" height="595" alt="Application modules">
+		</div>
+      </section>
+	  <section id = "architecture">
+		<h3>General architecture</h3>
+		<a href=""></a>
+		<div>
+		<img src="web/SoftDiagram.png"  width="842" height="595" alt="Software architecture">
+		</div>
+		<p>
+			The application will be developed using PHP and MySQL database. The Web UI will be sustain by the View part of the application, who respect de MVC pattern. 
+			<li>Model: Structures your data in a reliable form and prepares it based on controller’s instructions; </li>
+			<li>View: Displays data to user in easy-to-understand format, based on the user’s actions</li>
+			<li>Controller: Takes in user commands, sends commands to the model for data updates, sends instructions to view to update interface.</li>
+		</p>
+		<p>
+			As we explained earlier, we integrate our application with Last.fm which provide the playlists and gave many tags in order to provide the logic of music p
+			layer and scrobble services to add music to user’s profile.
+		</p>
+		<p>
+			For displaying the lyrics to the user, we use Elasticsearch PHP that search the song by its tags (artist, title, genre) and offers the lyrics on JSON format.
+			For the user authentication, we use Facebook and Google APIs that provide the OAuth standard with token-based authentication and authorization over the Internet.
+			Also, the Cloud API are used for hosting the application in Azure cloud with Azure App Service. Azure App Service provides a highly scalable, self-patching web
+			hosting service. In addition, App Service has built-in support for Cross-Origin Resource Sharing (CORS) for RESTful APIs
+		</p>
+		<p>
+		The model view controller in the PHP application divide the app in tree parts who manage its own role. 
+		</p>
+		<div>
+		<img src="web/mvc.png"   alt="Software architecture">
+		</div>
+	  </section>
+	  <section id = "internals">
+		<h3>Web system internals</h3>
+		<a href=""></a>
+		<div>
+		<img src="web/DataIO.png"  width="842" height="595" alt="Data input and output">
+		</div>
+        <p>
+			The input and output data from the web application and integration with the APIs already mentioned is typical to a PHP application. The data from the web user interface 
+			comes from HTTP requests and will be rendered as a HTTP response. The application communicate with Last.fm that provided the music in an xspf (XML Sharable Playlist Format) 
+			and some information in XML RPC request or REST for scrobbeling sessions or will respond in Last.fm idiom xml by default.
+		</p>
+		<p>
+			Graph API of Facebook will provide the events existed for the user, his friends, and his region and so on. It is important to highlight that the Last.fm API has the event methods, 
+			so with the use of this feature we will integrated with the Facebook (with links to the Facebook page events created) to provide to the user a better experience. The administrator can create events and the user to find those near him.
+			The Graph API of Facebook and OAuth standard needs a token (user token or application token) and send back a json format. Based on the user token, the Facebook synchronize the events with the existed on their platform for the user related to music.
+
+		</p>
+		<p>
+			The authentication is made by the user credentials, he can create an account or sign up with Facebook or Google account. In this case the request from browser 
+			will be redirect to the Facebook/Google API that will provide a token for access with the OAuth standard.
+		</p>
+		<div>
+		<img src="web/fb-Auth.png"   alt="Data input and output">
+		</div>
+		<p>
+		After the user has an account, it was registered by Facebook account or by the fields he complete on the form registration, the information is saved in the 
+		application and will be send as an account to the Last.fm API who authorize the access. The users are registered in the database. In the moments the 
+		user is registered, our application needs an API key from Last.fm. The our application  api key is sent along with an api signature and the authentication t
+		oken as arguments to the auth.getSession API method call. The parameters for this call are defined as such:
+		<li>api_key: Web app 32-character API Key.</li>
+		<li>token: The authentication token received at your callback url as a GET variable.</li>
+		<li>api_sig: Web app 32-character API method signature</li>
+		</p>
+		<p>
+		This flow is suitable for long-running applications in which the user grants permission only once. It provides an access token that can be refreshed. 
+		Since the token exchange involves sending the app secret key, it will be perform this on a secure location, like a backend service, and not from a client 
+		such as a browser or from a mobile app. Next time when the user will access the app and needs to listen to his playlists, the token is refreshed.  
+		It is very important to try not to hit the API on page load. The application account may be suspended if it is continuously making several calls per second. So, the authentication looks like this:
+		</p>
+		<div>
+		<img src="web/LastAPIAuth.png"  width="842" height="595"  alt="Data input and output">
+		</div>
+		<p>
+			Data flow will be showed in the nest figure explains the type of data and the processes that takes part in the application.
+			The user can make action wchich are processes and the application and Last.fm API will respond based on those action. The Data stores are the tables from the MySQL databases and those providede by Last.fm.
+			Becase once the user is registered, his information will be send to the API, in order to create a correlated account, some actions will be in responsability of the Last.fm.
+		</p>
+		<div>
+		<img src="web/DataFlow.png"  width="842" height="595"  alt="Data input and output">
+		</div>
+	  </section>
+      <section id="methods">
+        <!-- review? -->
+        <h3>API documentation</h3>
+		<a href=""></a>
+        <p>
+          In order to develop this application for the users, we need the technical structure. This 
+		  application is based on <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> services and APIs and the data stored in <a href="https://www.w3.org/XML/">XML</a> format from a 
+		  database. The website client is developed in PHP.
+		  </p>
+		  <p>
+			The API explained in this report will be: Last.fm, Facebook Graph API and OAuth, Google OAuth and Elasticsearch.
+		  </p>
+		  <p><h3>Last.fm API </h3></p>
+		  <p>
+		  Last.fm API is a powerful API that let developers to connect with it and Last.fm pull music data and user data from this social music database. 
+		  The application we talk about in this report is MusSmart. MusSmart use the web services of Last.fm and create an environment for the end user to 
+		  access music, to create playlists, in a word, to “manage” the music he want. Last.fm API use cases include music data visualization and analysis. 
+		  So it can make recommendations, has feature for events and social groups (friends). The data it is not copied, it just used with secure credentials 
+		  and the user accounts are authorized by this services.  For the PHP application Last.fm provide PHP Last.fm API.   
+        </p>
+		<p><b>Provider: </b>Last.fm</p>
+		<p><b>Link: <a href="https://www.last.fm/">https://www.last.fm/</a></b></p>
+		<p><b>API Documentation URL:</b><a href="https://www.last.fm/api"> https://www.last.fm/api</a> </p>
+		
+        <p>
+			Last.fm puts at disposition to the developer/user of API, a set of methods that includes:
+			<li>Album: search, information, and possibility for add, remove and get tops.</li>
+			<li>Artist: search, add, remove, similar artists, top albums, tracks.</li>
+			<li>Authentication (auth.getMobileSession,  auth.getSession, auth.getToken)</li>
+			<li>Chart: for top artists, top tracks and top in general</li>
+			<li>Geo for top artists and tracks</li>
+			<li>Library: as a collection of artists</li>
+			<li>Tag for getting information, get top albums, top artists, top tracks and weekly chart list and similar songs.</li>
+			<li>Track: add to favorites (track.love method), remove (track.unlove method), search, scrobble and update now playing.</li>
+			<li>User (all the preferences and information: friends, artists, playlists, album, tracks: favorites, recent, personal and many other methods)</li>
+		</p>
+		<p>
+			The most recognizable aspect of the Last.fm is the scrobbling, meaning to use Last.fm to keep track of all the songs one has played on their music service. 
+			This features are used by other popular app in connection with Last.fm. Last.fm's scrobbler feature can be used from the official desktop or mobile apps.
+			Music you listen to will then be tracked and automatically added to your music profile. Last.fm can be integrated with other popular music services, including your iTunes library, Spotify, YouTube, 
+			SoundCloud and many others. This means that you can also scrobble music you listen to from third-party apps like these when you have Last.fm integrated.
+		</p>
+		<p>
+			The "Now Playing" service lets a client notify Last.fm that a user has started listening to a track. This does not affect a user's charts, but will feature the 
+			current track on their profile page, along with an indication of what music player they're using. This API method call is optional for scrobbling clients, but recommended. 
+			Requests should be sent as soon as a user starts listening to a track.
+		</p>
+		<p>
+		Sending a Request
+		</p>
+		<p>
+		The web service method for sending Now Playing information is track.updateNowPlaying. Once a request has been received by Last.fm the following sequence of events takes place on our side:
+			<li>Check that the request passes our filters. </li>
+			<li>Find the track in our catalogue. </li>
+			<li>Update the user's Now Playing status with the track and client. </li>
+			<li>Return a response to the client indicating the outcome of the request.</li>
+		</p>
+		<p>
+		The request must be authenticated  and the flow looks like that.
+		</p>
+		<div>
+		<img src="web/Scrobble.png"   alt="Scrobble auth">
+		</div>
+		<p>
+			Another aspect that deserve our attention is the playlists API. Last.fm playlists do not contain streaming content. So, there is need for fetching, used with the playlist.fetch 
+			method call in order to fetch XSPF playlists. XSPF is a web standard for sharable playlists, and XSPF libraries are available in several languages. playlist.fetch 
+			takes a 'lastfm' protocol URL as an argument; this identifies the playlist you're requesting. The following protocol url schemes are currently supported:
+		
+			<li><strong>Album Playlists</strong>: lastfm://playlist/album/&lt;album_id&gt;</li>
+            <li><strong>User Playlists</strong>: lastfm://playlist/&lt;playlist_id&gt;</li>
+            <li><strong>Tag Playlists</strong>: lastfm://playlist/tag/&lt;tag_name&gt;/freetracks</li>
+		</p>
+		<p>
+		RADIO
+		</p>
+		<p>
+			The radio API requires authentication. Once authenticated, you can tune the radio using the radio.tune API method. 
+			This takes a station parameter that must correspond to a last.fm protocol station url. Here is the general scheme of these URLs:
+			lastfm://<stationtype>/<resourcename>/<station-subtype>
+		</p>
+		<p>
+			Here is a list of the station types currently publicly available, with example protocol URLs:
+			<ul>Artist
+				<li>Similar Artists Radio (e.g. lastfm://artist/cher/similarartists )</li>
+				<li>Top Fans Radio (e.g. lastfm://artist/cher/fans ) </li>
+			</ul>
+			<ul>User
+			<li>Library Radio (e.g. lastfm://user/last.hq/library )</li>
+			<li>Mix Radio (e.g. lastfm://user/last.hq/mix )</li>
+			<li>Recommendation Radio (e.g. lastfm://user/last.hq/recommended )</li>
+			<li>Neighbours Radio (e.g. lastfm://user/last.hq/neighbours )</li>
+			</ul>
+			<ul>Tag
+			<li>Global Tag Radio (e.g. lastfm://globaltags/disco )</li>
+			</ul>
+			
+			Fetching Radio Content
+			Once the station is tuned, our application use the API method radio.getPlaylist to fetch content in XSPF format. 
+			Last.fm recommands to periodically pull on this XSPF service as it will provide content in small chunks. We recommend you prefetch a new XSPF before reaching the end of the last.
+
+		</p>
+		
+		 <p><h3>XSPF </h3></p>
+		
+		<p>
+			<b>Link: <a href="http://xspf.org/specs/">http://xspf.org/specs/</a></b>
+		</p>
+		<p>
+			<b>Provider:</b> <a href="https://www.xiph.org/">Xiph.Org Foundation</a></p>
+		<p>
+			<b>API Documentation URL:</b> <a href="http://www.xspf.org/quickstart/">http://www.xspf.org/quickstart/</a>
+		</p>
+		
+		<p>
+			A listener community grown out of Audioscrobbler. Listeners send information about each track 
+			they play to Last.fm. That way Last.fm can build statistics about your music habits and make 
+			suggestions for music you might want to check out in the future.
+		</p>
+		<p>
+		 XSPF is the <a href="https://www.w3.org/XML/">XML</a> format for sharing playlists. 
+			<li>It is portable. You should be able to carry a playlist from one place to another.</li>
+			<li>It is well-engineered. Most playlist formats have bugs that make life harder for programmers 
+				and users.</li>
+			<li>It is free (as in liberty) and open. No proprietary lock-in.</li>
+		</p>
+		<p><h3>Elasticsearch </h3></p>
+		<p><b>Link: </b><a href="https://www.elastic.co/fr/products/elasticsearch">https://www.elastic.co/fr/products/elasticsearch</a></p>
+		<p><b>Provider:</b><a href="https://www.elastic.co/fr/products/elasticsearch">Elastic</a></p>
+		
+		<p>
+		Some API available for this application is ElasticSearch for the lyrics search and display. 
+		Elasticsearch is a distributed RESTful search and analysis engine designed to meet a multitude 
+		of use cases. And their list keeps getting rich. The cornerstone of the Elastic Suite, it centralizes 
+		the storage of your data and allows you to widen the range of possibilities. Your data no longer have
+		any secrets for you. 
+		</p>
+		<p>
+		Whenever a user performs an action in the Mussmart client—such as listening to a song or searching 
+		for an artist—a small piece of information, an event, is sent to our servers. Event delivery, the 
+		process of making sure that all events gets transported safely from clients all over the world to 
+		our central processing system, is an interesting problem. In this series of blog posts, we are going 
+		to look at some of the work we have done in this area. 
+		</p>
+		<p>
+			Elasticsearch provides an API specific for PHP applications. The installation is quite simple: It is required to include  elasticsearch-php in your composer.json file:
+		</p>
+		<div>
+		<img src="web/install1.png"   alt="Scrobble auth">
+		</div>
+		<p>
+			Install the client with composer:
+		</p>
+		<div>
+		<img src="web/install2.png"   alt="Scrobble auth">
+		</div>
+		<p>
+			Include the autoloader in your main project (if you haven’t already), and instantiate a new client :
+		</p>
+		<div>
+		<img src="web/install3.png"   alt="Scrobble auth">
+		</div>
+		<p>
+			In elasticsearch-php, almost everything is configured by associative arrays. 
+			The REST endpoint, document and optional parameters - everything is an associative array.
+		</p>
+		<p>
+			Elasticsearch provides an API specific for PHP applications. In elasticsearch-php, almost everything is configured by associative arrays. The REST endpoint, document and optional parameters - everything is an associative array.
+		</p>
+		<p>
+			The response that you get back indicates the document was created in the index that you specified. The response is an associative array containing a decoded version of the JSON that Elasticsearch returns.
+		</p>
+		<p><h3>Facebook API: OAuth and Graph API </h3></p>
+		<p><b>Link: </b><a href="https://developers.facebook.com/docs/php/howto/example_facebook_login/">https://developers.facebook.com/docs/php/howto/example_facebook_login/</a></p>
+		<p><b>Provider:</b><a href="https://developers.facebook.com/">Facebook for developers</a></p>
+        <p>
+			For web PHP application login all you need is the Facebook SDK for PHP. PHP script that generates the login link is called /login.php. The callback URL that Facebook redirects the user to after login dialog is called /fb-callback.php.
+		</p>
+		<div>
+		<img src="web/fb-log.png"   alt="Facebook auth">
+		</div>
+		<div>
+		<img src="web/fb-call-back1.png"   alt="Fb call-back">
+		<img src="web/fb-call-back2.png"   alt="Fb call-back">
+		</div>
+		<p>
+			The Facebook SDK for PHP is a library with powerful features that enable PHP developers to easily integrate Facebook login and make requests to the Graph API. It also plays well with the Facebook SDK for JavaScript 
+			to give the front-end user the best possible user experience. But it doesn't end there, the Facebook SDK for PHP makes it easy to upload photos and videos and send batch requests to the Graph API among other things.
+			And SDK for PHP has many extensibility points giving PHP developers full control of how the SDK for PHP interacts with their specific hosting environment and web framework.
+		</p>
+    </section>
+	
+	</section>
+	
+	
+	<section id="references">
+        <!-- review? -->
+        <h2>References</h2>
+        <p>
+       <a href="https://www.w3.org/XML/">XML</a>
+		</p>
+		<p>
+		<a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>
+		</p>
+		<p>
+		<a href="http://xspf.org/specs/">XSPF</a>
+		</p>
+		<p>
+		<a href="https://www.json.org/">JSON</a>
+		</p>
+		<p>
+		<a href="https://www.last.fm/api">Last.fm API</a>
+		</p>
+		<p>
+		<a href="https://www.elastic.co/fr/products/elasticsearch">ElasticSearch</a> 
+        </p>
+        <p>
+	</section>
+	
+  </body>
+  <hr>
+    <footer style="text-align: center">
+        <p property="schema:copyrightYear" property="schema:Organization">Copyright © 2018 <a href="http://www.feaa.uaic.ro/"> Faculty of Economics and Business Administration </a>, "Alexandru Ioan Cuza" University Iasi</p>
+        <a href="https://github.com/Esther96/Web-systems-development" property="schema:licence" typeof="CreativeWork">Licence</a>
+    </footer>
+	
+
+</html>
