@@ -16,7 +16,7 @@ We offer the design of the application and the platform, use cases, data flows a
 
 <b>Demo Video</b>
 <p>
-soon
+<a href =https://drive.google.com/file/d/1aE7VJdxRoz5_n8wx5ZCS-UbZ7irUDPb9/view?usp=sharing> Video </a>
 </p>
 
 <b>Progress</b>
